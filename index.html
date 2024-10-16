@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private-AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #444;
+        }
+        p, ul, pre {
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 600px) {
+            main {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🚀 Welcome to Private-AI!</h1>
+</header>
+
+<main>
+    <p align="center">
+        <a href="https://github.com/AryanVBw">
+            <img src="https://github.com/AryanVBW/Private-Ai/releases/download/I1/Bglight.png"  width="700" height="" alt="Darkside">
+        </a>
+    </p>
+
+    <p>Private-AI is an innovative AI project designed for asking questions about your documents using powerful Large Language Models (LLMs). The unique feature? It works offline, ensuring 100% privacy with no data leaving your environment.</p>
+
+    <h2>🌐 What does Private-AI offer?</h2>
+    <ul>
+        <li><strong>High-level API:</strong> Abstracts the complexity of a Retrieval Augmented Generation (RAG) pipeline. Handles document ingestion, chat, and completions.</li>
+        <li><strong>Low-level API:</strong> For advanced users to implement custom pipelines. Includes features like embeddings generation and contextual chunks retrieval.</li>
+    </ul>
+
+    <h2>🌟 Why Private-AI?</h2>
+    <p>Privacy is the key motivator! Private-AI addresses concerns in data-sensitive domains like healthcare and legal, ensuring your data stays under your control.</p>
+
+    <h2>🤖 Installation</h2>
+    <hr>
+
+    <h3>Private-Ai Installation Guide</h3>
+
+    <p>Install Python 3.11 (or 3.12)</p>
+    <ul>
+        <li>Using apt (Debian-based Linux like Kali, Ubuntu, etc.):</li>
+    </ul>
+    <pre><code>
+    sudo apt-get install python3.11
+    apt install python3.11-venv
+    </code><button class="copy-btn" onclick="copyToClipboard(this)">Copy</button></pre>
+
+    <ul>
+        <li>Using pyenv:</li>
+    </ul>
+    <pre><code>
+    pyenv install 3.11
+    pyenv local 3.11
+    </code><button class="copy-btn" onclick="copyToClipboard(this)">Copy</button></pre>
+
+    <p>Install <a href="https://python-poetry.org/docs/#installing-with-pipx">Poetry</a> for dependency management.</p>
+    <pre><code>
+    sudo apt install python3-poetry
+    sudo apt install python3-pytest
+    </code><button class="copy-btn" onclick="copyToClipboard(this)">Copy</button></pre>
+
+    <h3>Installation Without GPU:</h3>
+    <pre><code>
+    git clone https://github.com/AryanVBW/Private-Ai
+    cd Private-Ai && \
+    python3.11 -m venv .venv && source .venv/bin/activate && \
+    pip install --upgrade pip poetry && poetry install --with ui,local && ./scripts/setup 
+    python3.11 -m private_gpt
+    </code><button class="copy-btn" onclick="copyToClipboard(this)">Copy</button></pre>
+
+    <h3>Run of Private-AI:</h3>
+    <p>For running again, go to the Private-Ai directory and run the following command:</p>
+    <pre><code>
+    make run
+    </code><button class="copy-btn" onclick="copyToClipboard(this)">Copy</button></pre>
+
+    <p><strong>All Done 👍👍</strong></p>
+
+    <h2>For GPU Utilization and Customization:</h2>
+    <p>To run Private-AI fully locally, GPU acceleration is required (CPU execution is possible, but very slow).</p>
+
+    <h3>Clone the repository:</h3>
+    <pre><code>
+    git clone https://github.com/AryanVBW/Private-Ai
+    cd Private-Ai
+    </code><button class="copy-btn" onclick="copyToClipboard(this)">Copy</button></pre>
+
+    <h3>Dependencies Installation:</h3>
+    <ul>
+        <li>Install make (OSX: <code>brew install make</code>, Windows: <code>choco install make</code>).</li>
+    </ul>
+    <pre><code>
+    poetry install --with ui
+    </code><button class="copy-btn" onclick="copyToClipboard(this)">Copy</button></pre>
+
+    <h3>Local LLM Setup:</h3>
+    <pre><code>
+    poetry install --with local
+    poetry run python scripts/setup
+    </code><button class="copy-btn" onclick="copyToClipboard(this)">Copy</button></pre>
+
+    <h3>Finalize Installation of Private-AI:</h3>
+    <pre><code>
+    make
+    </code><button class="copy-btn" onclick="copyToClipboard(this)">Copy</button></pre>
+
+    <h3>Verification and Run:</h3>
+    <pre><code>
+    make run
+    </code><button class="copy-btn" onclick="copyToClipboard(this)">Copy</button></pre>
+    <p>Open <a href="http://localhost:8001">http://localhost:8001</a> to see Gradio UI with a mock LLM echoing input.</p>
+
+    <h3>Customization:</h3>
+    <ul>
+        <li>Customize low-level parameters in <code>private_gpt/components/llm/llm_component.py</code>.</li>
+        <li>Configure LLM options in <code>settings.yaml</code>.</li>
+    </ul>
+
+    <h2>GPU Support:</h2>
+    <ul>
+        <li><strong>OSX:</strong> Build llama.cpp with Metal support.</li>
+    </ul>
+    <pre><code>
+    CMAKE_ARGS="-DLLAMA_METAL=on" pip install --force-reinstall --no-cache-dir llama-cpp-python
+    </code><button class="copy-btn" onclick="copyToClipboard(this)">Copy</button></pre>
+
+    <ul>
+        <li><strong>Windows NVIDIA GPU:</strong> Install <a href="https://visualstudio.microsoft.com/vs/community/">VS2022</a>, <a href="https://developer.nvidia.com/cuda-downloads">CUDA toolkit</a>, and run:</li>
+    </ul>
+    <pre><code>
+    $env:CMAKE_ARGS='-DLLAMA_CUBLAS=on'; poetry run pip install --force-reinstall --no-cache-dir llama-cpp-python
+    </code><button class="copy-btn" onclick="copyToClipboard(this)">Copy</button></pre>
+
+    <ul>
+        <li><strong>Linux NVIDIA GPU and Windows-WSL:</strong> Install <a href="https://developer.nvidia.com/cuda-downloads">CUDA toolkit</a> and run:</li>
+    </ul>
+    <pre><code>
+    CMAKE_ARGS='-DLLAMA_CUBLAS=on' poetry run pip install --force-reinstall --no-cache-dir llama-cpp-python
+    </code><button class="copy-btn" onclick="copyToClipboard(this)">Copy</button></pre>
+
+    <h2>Troubleshooting:</h2>
+    <ul>
+        <li>Check GPU support and dependencies for your platform.</li>
+        <li>For C++ compiler issues, follow troubleshooting steps.</li>
+    </ul>
+
+    <p><strong>Note:</strong> If any issues arise, retry in verbose mode with <code>-vvv</code> during installations.</p>
+
+    <h3>Troubleshooting C++ Compiler:</h3>
+    <ul>
+        <li><strong>Windows 10/11:</strong> Install Visual Studio 2022 and MinGW.</li>
+        <li><strong>OSX:</strong> Ensure Xcode is installed or install clang/gcc with Homebrew.</li>
+    </ul>
+
+    <hr>
+
+    <h2>🧩 Architecture Highlights:</h2>
+    <ul>
+        <li><strong>FastAPI-Based API:</strong> Follows the OpenAI API standard, making it easy to integrate.</li>
+        <li><strong>LlamaIndex Integration:</strong> Leverages LlamaIndex for the RAG pipeline, providing flexibility and extensibility.</li>
+        <li><strong>Present and Future:</strong> Evolving into a gateway for generative AI models and primitives. Stay tuned for exciting new features!</li>
+    </ul>
+
+    <h2>💡 How to Contribute?</h2>
+    <p>Contributions are welcome! Check the ProjectBoard for ideas. Ensure code quality with format and typing checks (run <code>make check</code>).</p>
+
+    <h2>🤗 Supporters:</h2>
+    <p>Supported by Qdrant, Fern, and LlamaIndex. Influenced by projects like LangChain, GPT4All, LlamaCpp, Chroma, and SentenceTransformers.</p>
+
+    <p>👏 Thank you for contributing to the future of private and powerful AI with Private-AI!</p>
+
+    <p>📝 <strong>License:</strong> Apache-2.0</p>
+
+    <p><strong>Copyright Notice:</strong> This is a modified version of <a href="https://github.com/imartinez/privateGPT">PrivateGPT</a>. All rights and licenses belong to the PrivateGPT team.</p>
+
+    <p>© 2023 PrivateGPT Developers. All rights reserved.</p>
+</main>
+
+<footer>
+    <p>© 2023 PrivateGPT Developers. All rights reserved.</p>
+</footer>
+
+<script>
+    function copyToClipboard(button) {
+        const codeBlock = button.previousElementSibling;
+        const textArea = document.createElement('textarea');
+        textArea.value = codeBlock.textContent;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        button.textContent = 'Copied!';
+        setTimeout(() => {
+            button.textContent = 'Copy';
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>
